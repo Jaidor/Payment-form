@@ -422,7 +422,7 @@ tr:nth-child(even) {
           $.ajax({
               method: "POST",
               dataType: "text",
-              url: "https://voguepay.com",
+              url: "https://jideola.herokuapp.com/index.php/api/v1.0/create_pay",
               data: form.serialize(), // serializes form input
               success: function(data){
                   console.log(data);
