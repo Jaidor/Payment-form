@@ -427,9 +427,10 @@ tr:nth-child(even) {
               success: function(data){
                   // console.log(data);
                   alert(data);
+                  window.location.reload();
               },
               error:function(){
-                console.log('Errors in the code...');
+                console.log('Errors occurred...');
               }
           });
       });
