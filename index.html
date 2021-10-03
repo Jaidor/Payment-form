@@ -425,7 +425,8 @@ tr:nth-child(even) {
               url: "https://jideola.herokuapp.com/index.php/api/v1.0/create_pay",
               data: form.serialize(), /* Serializes form input */
               success: function(data){
-                  console.log(data);
+                var myArr = JSON.parse(data);
+                  console.log(myArr);
               },
               error:function(){
                 console.log('Errors in the code...');
