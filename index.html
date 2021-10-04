@@ -422,25 +422,27 @@ tr:nth-child(even) {
           $.ajax({
               method: "POST",
               dataType: "text",
-              url: "https://jideola.herokuapp.com/index.php/api/v1.0/create_pay",
+              url: "https://jideola.herokuapp.com/index.php/api/v1.0/transactions",
               data: form.serialize(), /* Serializes form input */
               success: function(data){
-                var result = JSON.parse(data);
 
-                var status = result?.data?.status;
-                var code = result?.data?.code;
-                var message = result?.data?.message[0];
-                var response = result?.data?.response?.total;
+                console.log($data);
+                // var result = JSON.parse(data);
 
-                if(status == false){
-                  alert(message);
-                  window.location.reload();
-                }
+                // var status = result?.data?.status;
+                // var code = result?.data?.code;
+                // var message = result?.data?.message[0];
+                // var response = result?.data?.response?.total;
 
-                if(status == true && code == 'OK'){
-                  alert(message);
-                  window.location.reload();
-                }
+                // if(status == false){
+                //   alert(message);
+                //   window.location.reload();
+                // }
+
+                // if(status == true && code == 'OK'){
+                //   alert(message);
+                //   window.location.reload();
+                // }
               },
               error:function(){
                 console.log('Errors occurred...');
