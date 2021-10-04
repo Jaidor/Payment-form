@@ -266,11 +266,10 @@ tr:nth-child(even) {
             <script>
 
               function loadItemsData(items) {
-                console.log(items);
 
-                var status = result?.data?.status;
-                var code = result?.data?.code;
-                var response = result?.data?.response?.data;
+                var status = result?.items?.status;
+                var code = result?.items?.code;
+                var response = result?.items?.response?.data;
 
                 if(status == true && code == 'TRH_OK'){
 
