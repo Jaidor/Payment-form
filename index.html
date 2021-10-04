@@ -259,7 +259,8 @@ tr:nth-child(even) {
                   <th>Availbale Unit</th>
                   <th>Unit Price</th>
                   <th>Normal Price</th>
-                  <th>Action</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody id="testBody"></tbody>
@@ -295,6 +296,12 @@ tr:nth-child(even) {
 
                       let normalPrice = row.insertCell(5);
                       normalPrice.innerHTML = res.normalPrice;
+
+                      let edit = row.insertCell(0);
+                      edit.innerHTML = 'Edit';
+
+                      let del = row.insertCell(0);
+                      del.innerHTML = 'Delete';
                    });
                   
                 }
