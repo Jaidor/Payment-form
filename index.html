@@ -269,7 +269,7 @@ tr:nth-child(even) {
                   method: "POST",
                   dataType: "text",
                   url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_items",
-                  data: form.serialize(), /* Serializes form input */
+                  // data: form.serialize(), /* Serializes form input */
                   success: function(data){
                     var items = JSON.parse(data);
                     console.log(items);
