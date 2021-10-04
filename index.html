@@ -255,10 +255,10 @@ tr:nth-child(even) {
                 <tr>
                   <th>Company</th>
                   <th>Contact</th>
-                  <th>Country</th>
+                  <!-- <th>Country</th>
                   <th>Email</th>
                   <th>Address</th>
-                  <th>Description</th>
+                  <th>Description</th> -->
                 </tr>
               </thead>
               <tbody id="testBody"></tbody>
@@ -293,84 +293,7 @@ tr:nth-child(even) {
                     console.log('Errors occurred...');
                   }
               });
-              
-              // function loadItemsData(items) {
-              //   const table = document.getElementById("testBody");
-              //   items.forEach( item => {
-              //     let row = table.insertRow();
-              //     let date = row.insertCell(0);
-              //     date.innerHTML = item.date;
-              //     let name = row.insertCell(1);
-              //     name.innerHTML = item.name;
-              //   });
-              // }
-              // loadItemsData(items1);
-              // loadItemsData([]);
             </script>
-
-
-            <!-- <script>
-                 function listItem(){
-          
-                    $.ajax({
-                        method: "POST",
-                        dataType: "text",
-                        url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_items",
-                        data: form.serialize(), /* Serializes form input */
-                        success: function(data){
-                          var result = JSON.parse(data);
-                          
-                        },
-                        error:function(){
-                          console.log('Errors occurred...');
-                        }
-                    });
-                  }
-            </script>
-
-
-            <table>
-                <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Description</th>
-                </tr>
-                <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
-                </tr>
-                <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                </tr>
-                <tr>
-                  <td>Ernst Handel</td>
-                  <td>Roland Mendel</td>
-                  <td>Austria</td>
-                  <td>Ernst Handel</td>
-                  <td>Roland Mendel</td>
-                  <td>Austria</td>
-                </tr>
-                <tr>
-                  <td>Island Trading</td>
-                  <td>Helen Bennett</td>
-                  <td>UK</td>
-                  <td>Island Trading</td>
-                  <td>Helen Bennett</td>
-                  <td>UK</td>
-                </tr>
-              </table> -->
 
         </div>
         
