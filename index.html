@@ -265,6 +265,20 @@ tr:nth-child(even) {
             </table>
             <script>
 
+              function loadItemsData(items) {
+                console.log(items);
+                // const table = document.getElementById("testBody");
+                // items.forEach( item => {
+                //   let row = table.insertRow();
+
+                //   let id = row.insertCell(0);
+                //   id.innerHTML = item.id;
+                //   let name = row.insertCell(1);
+                //   name.innerHTML = item.name;
+                // });
+              }
+
+
               $.ajax({
                   method: "POST",
                   dataType: "text",
@@ -279,18 +293,6 @@ tr:nth-child(even) {
                     console.log('Errors occurred...');
                   }
               });
-
-              function loadItemsData(items) {
-                const table = document.getElementById("testBody");
-                items.forEach( item => {
-                  let row = table.insertRow();
-
-                  let id = row.insertCell(0);
-                  id.innerHTML = item.id;
-                  let name = row.insertCell(1);
-                  name.innerHTML = item.name;
-                });
-              }
             </script>
 
         </div>
