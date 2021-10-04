@@ -272,26 +272,27 @@ tr:nth-child(even) {
                   data: form.serialize(), /* Serializes form input */
                   success: function(data){
                     var items = JSON.parse(data);
+                    console.log(items);
 
-                    function loadItemsData(items) {
-                      const table = document.getElementById("testBody");
-                      items.forEach( item => {
-                        let row = table.insertRow();
+                  //   function loadItemsData(items) {
+                  //     const table = document.getElementById("testBody");
+                  //     items.forEach( item => {
+                  //       let row = table.insertRow();
 
-                        let id = row.insertCell(0);
-                        id.innerHTML = item.id;
-                        let name = row.insertCell(1);
-                        name.innerHTML = item.name;
-                      });
-                    }
+                  //       let id = row.insertCell(0);
+                  //       id.innerHTML = item.id;
+                  //       let name = row.insertCell(1);
+                  //       name.innerHTML = item.name;
+                  //     });
+                  //   }
 
-                    loadItemsData(items);
-                    loadItemsData([]);
+                  //   loadItemsData(items);
+                  //   loadItemsData([]);
                     
-                  },
-                  error:function(){
-                    console.log('Errors occurred...');
-                  }
+                  // },
+                  // error:function(){
+                  //   console.log('Errors occurred...');
+                  // }
               });
             </script>
 
