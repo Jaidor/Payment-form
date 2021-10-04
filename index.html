@@ -267,6 +267,18 @@ tr:nth-child(even) {
 
               function loadItemsData(items) {
                 console.log(items);
+
+                var status = result?.data?.status;
+                var code = result?.data?.code;
+                var response = result?.data?.response?.data;
+
+                if(status == true && code == 'TRH_OK'){
+
+                  console.log(response);
+                  
+                }
+
+
                 // const table = document.getElementById("testBody");
                 // items.forEach( item => {
                 //   let row = table.insertRow();
@@ -431,7 +443,6 @@ tr:nth-child(even) {
                 var status = result?.data?.status;
                 var code = result?.data?.code;
                 var message = result?.data?.message[0];
-                var response = result?.data?.response?.total;
 
                 if(status == false){
                   alert(message);
