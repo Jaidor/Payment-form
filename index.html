@@ -396,33 +396,33 @@ tr:nth-child(even) {
                   <th>Profit Made</th>
                 </tr>
               </thead>
-              <tbody id="purBody"></tbody>
+              <tbody id="categoryBody"></tbody>
             </table>
             <script>
 
-              function loadPurchaseData(pur) {
+              function loadCategoryData(cat) {
 
-                var status = pur?.data?.status;
-                var code = pur?.data?.code;
-                var response = pur?.data?.response?.data;
+                var status = cat?.data?.status;
+                var code = cat?.data?.code;
+                var response = cat?.data?.response?.data;
 
                 if(status == true && code == 'TRH_OK'){
 
-                  const table = document.getElementById("purBody");
+                  const table = document.getElementById("categoryBody");
                     response.forEach( res => {
                       let row = table.insertRow();
 
                       let id = row.insertCell(0);
                       id.innerHTML = res.id;
 
-                      let cat = row.insertCell(1);
-                      cat.innerHTML = res.cat;
+                      let category = row.insertCell(1);
+                      cat.innerHTML = res.category;
 
                       let amountPaid = row.insertCell(2);
                       amountPaid.innerHTML = res.amountPaid;
 
                       let profitMade = row.insertCell(3);
-                      profitMade.innerHTML = res.pprofitMade;
+                      profitMade.innerHTML = res.profitMade;
                    });
                   
                 }
@@ -432,11 +432,11 @@ tr:nth-child(even) {
               $.ajax({
                   method: "POST",
                   dataType: "text",
-                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_purchase",
+                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_category",
                   success: function(data){
                     var pur = JSON.parse(data);
-                    loadPurchaseData(pur);
-                    loadPurchaseData([]);
+                    loadCategoryData(pur);
+                    loadCategoryData([]);
                   },
                   error:function(){
                     console.log('Errors occurred...');
