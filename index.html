@@ -274,13 +274,13 @@ tr:nth-child(even) {
                 if(status == true && code == 'TRH_OK'){
 
                   const table = document.getElementById("testBody");
-                    items.forEach( response => {
+                    response.forEach( res => {
                       let row = table.insertRow();
 
                       let id = row.insertCell(0);
-                      id.innerHTML = item.id;
+                      id.innerHTML = res.id;
                       let name = row.insertCell(1);
-                      name.innerHTML = item.name;
+                      name.innerHTML = res.name;
                    });
                   
                 }
