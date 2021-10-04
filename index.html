@@ -426,15 +426,15 @@ tr:nth-child(even) {
               data: form.serialize(), /* Serializes form input */
               success: function(data){
                 var result = data;
-                var status = result?.data?.status;
-                var code = result?.data?.code;
-                var message = result?.data?.message[0];
-                var response = result?.data?.response?.total;
+                // var status = result?.data?.status;
+                // var code = result?.data?.code;
+                // var message = result?.data?.message[0];
+                // var response = result?.data?.response?.total;
 
                 // if(status == true && code == 'OK'){
                 //   alert($message);
                 // }
-                  console.log(code);
+                  console.log(result);
                   // window.location.reload();
               },
               error:function(){
