@@ -432,6 +432,11 @@ tr:nth-child(even) {
                 var message = result?.data?.message[0];
                 var response = result?.data?.response?.total;
 
+                if(status == false){
+                  alert(message);
+                  window.location.reload();
+                }
+
                 if(status == true && code == 'OK'){
                   alert(message);
                   window.location.reload();
