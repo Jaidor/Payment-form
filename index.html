@@ -253,12 +253,13 @@ tr:nth-child(even) {
             <table id="myTable" class="">
               <thead>
                 <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <!-- <th>Country</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Description</th> -->
+                  <th>SN</th>
+                  <th>Itemname</th>
+                  <th>Category</th>
+                  <th>Availbale Unit</th>
+                  <th>Unit Price</th>
+                  <th>Normal Price</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody id="testBody"></tbody>
@@ -282,6 +283,18 @@ tr:nth-child(even) {
 
                       let item = row.insertCell(1);
                       item.innerHTML = res.item;
+
+                      let category = row.insertCell(2);
+                      category.innerHTML = res.category;
+
+                      let availableUnit = row.insertCell(3);
+                      availableUnit.innerHTML = res.availableUnit;
+
+                      let unitPrice = row.insertCell(4);
+                      unitPrice.innerHTML = res.unitPrice;
+
+                      let normalPrice = row.insertCell(5);
+                      normalPrice.innerHTML = res.normalPrice;
                    });
                   
                 }
