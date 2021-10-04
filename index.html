@@ -273,20 +273,17 @@ tr:nth-child(even) {
 
                 if(status == true && code == 'TRH_OK'){
 
-                  console.log(response);
+                  const table = document.getElementById("testBody");
+                    items.forEach( response => {
+                      let row = table.insertRow();
+
+                      let id = row.insertCell(0);
+                      id.innerHTML = item.id;
+                      let name = row.insertCell(1);
+                      name.innerHTML = item.name;
+                   });
                   
                 }
-
-
-                // const table = document.getElementById("testBody");
-                // items.forEach( item => {
-                //   let row = table.insertRow();
-
-                //   let id = row.insertCell(0);
-                //   id.innerHTML = item.id;
-                //   let name = row.insertCell(1);
-                //   name.innerHTML = item.name;
-                // });
               }
 
 
