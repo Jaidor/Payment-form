@@ -425,9 +425,10 @@ tr:nth-child(even) {
               url: "https://jideola.herokuapp.com/index.php/api/v1.0/create_pay",
               data: form.serialize(), /* Serializes form input */
               success: function(data){
+                // var json = JSON.parse(data);
                   console.log(data);
                   // alert(data);
-                  window.location.reload();
+                  // window.location.reload();
               },
               error:function(){
                 console.log('Errors occurred...');
