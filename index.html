@@ -335,38 +335,65 @@ tr:nth-child(even) {
             <h4 class="label-title" style="text-align:center">List purchases</h4>
 
 
-            <table>
+            <table id="myTable" class="">
+              <thead>
                 <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
-                  <th>Email</th>
+                  <th>SN</th>
+                  <th>Category</th>
+                  <th>Amount Paid</th>
+                  <th>Profit Made</th>
                 </tr>
-                <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
-                  <td>Alfreds Futterkiste</td>
-                </tr>
-                <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                  <td>Centro comercial Moctezuma</td>
-                </tr>
-                <tr>
-                  <td>Ernst Handel</td>
-                  <td>Roland Mendel</td>
-                  <td>Austria</td>
-                  <td>Ernst Handel</td>
-                </tr>
-                <tr>
-                  <td>Island Trading</td>
-                  <td>Helen Bennett</td>
-                  <td>UK</td>
-                  <td>Island Trading</td>
-                </tr>
-              </table>
+              </thead>
+              <tbody id="purchaseBody"></tbody>
+            </table>
+            <script>
+
+              function loadPurchaseData(pur) {
+
+                var status = pur?.data?.status;
+                var code = pur?.data?.code;
+                var response = pur?.data?.response?.data;
+
+                if(status == true && code == 'TRH_OK'){
+
+                  const table = document.getElementById("purchaseBody");
+                    response.forEach( res => {
+                      let row = table.insertRow();
+
+                      let id = row.insertCell(0);
+                      id.innerHTML = res.id;
+
+                      let item = row.insertCell(1);
+                      item.innerHTML = res.item;
+
+                      let quantity = row.insertCell(2);
+                      quantity.innerHTML = res.quantity;
+
+                      let amountPaid = row.insertCell(2);
+                      amountPaid.innerHTML = res.amountPaid;
+
+                      let profitMade = row.insertCell(3);
+                      profitMade.innerHTML = res.profitMade;
+                   });
+                  
+                }
+              }
+
+
+              $.ajax({
+                  method: "POST",
+                  dataType: "text",
+                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_purchase",
+                  success: function(data){
+                    var pur = JSON.parse(data);
+                    loadPurchaseData(pur);
+                    loadPurcahseData([]);
+                  },
+                  error:function(){
+                    console.log('Errors occurred...');
+                  }
+              });
+            </script>
 
         </div>
         
@@ -434,8 +461,8 @@ tr:nth-child(even) {
                   dataType: "text",
                   url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_category",
                   success: function(data){
-                    var pur = JSON.parse(data);
-                    loadCategoryData(pur);
+                    var cat = JSON.parse(data);
+                    loadCategoryData(cat);
                     loadCategoryData([]);
                   },
                   error:function(){
