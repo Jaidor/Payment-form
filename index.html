@@ -530,13 +530,15 @@ tr:nth-child(even) {
 
 //     }
 
-    // function getSpinner() {
-    //   var loadingimage = '<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="rotation.gif" /></div>';
-    //   return loadingimage;
-    // }
+    function getSpinner() {
+      var loadingimage = '<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="rotation.gif" /></div>';
+      return loadingimage;
+    }
 
 
     function pay(){
+
+      console.log(getSpinner());
 
       /* Assign variables */
       var fullname = $('#fullname').val();
@@ -716,7 +718,7 @@ tr:nth-child(even) {
           <button type="submit" class="btn" onclick="return pay();">Pay</button>
         </div>
     </form>
-    
+
       </div>
     </div>
   </div>
