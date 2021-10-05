@@ -171,9 +171,6 @@ tr:nth-child(even) {
 .error {
 color:red !important;
 }
-  .bootstrap-select.filter-option2 .dropdown-menu.open{
-    height: 400px;overflow: hidden;
-  }
 
 .loader,
 .loader:before,
@@ -612,7 +609,7 @@ color:red !important;
         unitPrice = $("#unit-price").val();
 
         /* Validates fields */
-        if(itemName == "") { alert('Oops! item name is empty'); return false; }
+        if(itemName == "") {$('#confirmModal').modal('show'); $('#modalContent').html('<h4>Incorrect Bank / Account Number</h4>'); return false; }
         if(category == "") { alert('Oops! category is empty'); return false ;}
         if(availablePrice == "") { alert('Oops! available price is empty'); return false; }
         if(normalPrice == "") { alert('Oops! normal price is empty'); return false; }
