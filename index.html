@@ -550,8 +550,9 @@ color:red !important;
 
     function pay(){
 
-      $('#toggleDiv').html('');
-      $('#toggleDiv').html('<div class="loader"></div>');
+      $('#toggleDiv').modal('hide');
+      $('#confirmModal').modal('show');
+      $('#modalContent').html('<div class="loader"></div>');
 
       /* Assign variables */
       var fullname = $('#fullname').val();
