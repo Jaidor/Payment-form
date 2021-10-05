@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Flypay</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <style>
+
+    @import url('httpss://fonts.googleapis.com/css?family=Roboto');
+
+    body {
+        background:linear-gradient(to right, #78a7ba 0%, #385D6C 50%, #78a7ba 99%);
+    }
+
+    .signup-form {
+    font-family: "Roboto", sans-serif;
+    width:650px;
+    margin:30px auto;
+    background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+    border-radius: 10px;
+    }
+
+    .form-header  {
+    background-color: #EFF0F1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    }
+
+    .form-header h1 {
+    font-size: 30px;
+    text-align:center;
+    color:#666;
+    padding:20px 0;
+    border-bottom:1px solid #cccccc;
+    }
+
+
+    /*---------------------------------------*/
+/* Form Body */
+/*---------------------------------------*/
+.form-body {
+  padding:10px 40px;
+  color:#666;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-body .label-title {
+  color:#1BBA93;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.form-body .form-input {
+    font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: white;
+    outline: none;
+}
+
+
+
+.horizontal-group .left{
+  float:left;
+  width:49%;
+}
+
+.horizontal-group .right{
+  float:right;
+  width:49%;
+}
+
+input[type="file"] {
+ outline: none;
+ cursor:pointer;
+ font-size: 17px;
+}
+
+#range-label {
+ width:15%;
+ padding:5px;
+ background-color: #1BBA93;
+ color:white;
+ border-radius: 5px;
+ font-size: 17px;
+ position: relative;
+ top:-8px;
+}
+
+
+::-webkit-input-placeholder {
+ color:#d9d9d9;
+}
+
+/*---------------------------------------*/
+/* Form Footer */
+/*---------------------------------------*/
+.form-footer {
+ clear:both;
+}
+
+.signup-form .form-footer  {
+  background-color: #EFF0F1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding:10px 40px;
+  text-align: right;
+  border-top: 1px solid #cccccc;
+}
+
+.form-footer span {
+  float:left;
+  margin-top: 10px;
+  color:#999;  
+  font-style: italic;
+  font-weight: thin;
+}
+
+.btn {
+   display:inline-block;
+   padding:10px 20px;
+   background-color: #1BBA93;
+   font-size:17px;
+   border:none;
+   border-radius:5px;
+   color:#bcf5e7;
+   cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #169c7b;
+  color:white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+  <body>
+
+    <!-- form header -->
+   <div class="form-header">
+      <h1>Flypay</h1>
+   </div> 
+
+    <form class="signup-form" action="" method="post">
+
+        <!-- form header -->
+        <div class="form-header">
+        </div>
+    
+        <!-- form body -->
+        <div class="form-body">
+
+            <h4 class="label-title" style="text-align:center">Add item to the store</h4>
+
+                <!-- item name and category -->
+                <div class="horizontal-group">
+                    <div class="form-group left">
+                        <label for="item-name" class="label-title">Item name *</label>
+                        <input type="text" id="item-name" class="form-input" placeholder="enter your itemname" required="required" name="Itemname" />
+                    </div>
+                    <div class="form-group right">
+                        <label for="category" class="label-title">Category *</label>
+                        <input type="text" id="category" class="form-input" placeholder="category" name="Category" />
+                    </div>
+                </div>
+            
+                <!-- Available unit -->
+               <div class="form-group">
+                  <label for="available-unit" class="label-title">Available Unit*</label>
+                  <input type="number" id="available-unit" class="form-input" placeholder="enter your available unit" required="required" name="Available">
+               </div>
+              
+               <!-- Normal and unit price -->
+              <div class="horizontal-group">
+              
+                <div class="form-group left">
+                  <label for="normal-price" class="label-title">Normal Price *</label>
+                  <input type="number" id="normal-price" class="form-input" placeholder="enter your normal price" required="required" name="Normal">
+                </div>
+              
+                <div class="form-group right">
+                  <label for="unit-price" class="label-title">Unit Price *</label>
+                  <input type="number" class="form-input" id="unit-price" placeholder="enter your unit price" required="required" name="Unit">
+                </div>
+              
+              </div>
+
+
+        </div>
+        
+        <!-- form footer -->
+        <div class="form-footer">
+            <button type="submit" class="btn" onclick="return payment();">Add</button>
+        </div>
+
+        <!-- <button id="btn">Click</button>
+        <input id="qty" placeholder="Type the number of products u want..." /> -->
+    
+    </form>
+    
+
+
+
+
+
+    <form class="signup-form" action="" method="post">
+
+        <!-- form header -->
+        <div class="form-header">
+        </div>
+    
+        <!-- List of items body -->
+        <div class="form-body">
+
+            <h4 class="label-title" style="text-align:center">List of items in the store</h4>
+
+
+            <table id="myTable" class="">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>Itemname</th>
+                  <th>Category</th>
+                  <th>Availbale Unit</th>
+                  <th>Unit Price</th>
+                  <th>Normal Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="testBody"></tbody>
+            </table>
+            <script>
+
+              function loadItemsData(items) {
+
+                var status = items?.data?.status;
+                var code = items?.data?.code;
+                var response = items?.data?.response?.data;
+
+                if(status == true && code == 'TRH_OK'){
+
+                  const table = document.getElementById("testBody");
+                    response.forEach( res => {
+                      let row = table.insertRow();
+
+                      let id = row.insertCell(0);
+                      id.innerHTML = res.id;
+
+                      let item = row.insertCell(1);
+                      item.innerHTML = res.item;
+
+                      let category = row.insertCell(2);
+                      category.innerHTML = res.category;
+
+                      let availableUnit = row.insertCell(3);
+                      availableUnit.innerHTML = res.availableUnit;
+
+                      let unitPrice = row.insertCell(4);
+                      unitPrice.innerHTML = res.unitPrice;
+
+                      let normalPrice = row.insertCell(5);
+                      normalPrice.innerHTML = res.normalPrice;
+                   });
+                  
+                }
+              }
+
+
+              $.ajax({
+                  method: "POST",
+                  dataType: "text",
+                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_items",
+                  success: function(data){
+                    var items = JSON.parse(data);
+                    loadItemsData(items);
+                    loadItemsData([]);
+                  },
+                  error:function(){
+                    console.log('Errors occurred...');
+                  }
+              });
+            </script>
+
+        </div>
+        
+    
+    </form>
+
+
+
+    <form class="signup-form" action="" method="post">
+
+        <!-- form header -->
+        <div class="form-header">
+        </div>
+    
+        <!-- List of items body -->
+        <div class="form-body">
+
+            <h4 class="label-title" style="text-align:center">List purchases</h4>
+
+
+            <table id="myTable" class="">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Amount Paid</th>
+                  <th>Profit Made</th>
+                </tr>
+              </thead>
+              <tbody id="purchaseBody"></tbody>
+            </table>
+            <script>
+
+              function loadPurchaseData(pur) {
+
+                var status = pur?.data?.status;
+                var code = pur?.data?.code;
+                var response = pur?.data?.response?.data;
+
+                if(status == true && code == 'TRH_OK'){
+
+                  const table = document.getElementById("purchaseBody");
+                    response.forEach( res => {
+                      let row = table.insertRow();
+
+                      let id = row.insertCell(0);
+                      id.innerHTML = res.id;
+
+                      let item = row.insertCell(1);
+                      item.innerHTML = res.item;
+
+                      let quantity = row.insertCell(2);
+                      quantity.innerHTML = res.quantity;
+
+                      let amountPaid = row.insertCell(2);
+                      amountPaid.innerHTML = res.amountPaid;
+
+                      let profitMade = row.insertCell(3);
+                      profitMade.innerHTML = res.profitMade;
+                   });
+                  
+                }
+              }
+
+
+              $.ajax({
+                  method: "POST",
+                  dataType: "text",
+                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_purchase",
+                  success: function(data){
+                    var pur = JSON.parse(data);
+                    loadPurchaseData(pur);
+                    loadPurcahseData([]);
+                  },
+                  error:function(){
+                    console.log('Errors occurred...');
+                  }
+              });
+            </script>
+
+        </div>
+        
+    
+    </form>
+
+
+
+    <form class="signup-form" action="" method="post">
+
+        <!-- form header -->
+        <div class="form-header">
+        </div>
+    
+        <!-- List purchases by category body -->
+        <div class="form-body">
+
+            <h4 class="label-title" style="text-align:center">List purchases by category</h4>
+
+
+            <table id="myTable" class="">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>Category</th>
+                  <th>Amount Paid</th>
+                  <th>Profit Made</th>
+                </tr>
+              </thead>
+              <tbody id="categoryBody"></tbody>
+            </table>
+            <script>
+
+              function loadCategoryData(cat) {
+
+                var status = cat?.data?.status;
+                var code = cat?.data?.code;
+                var response = cat?.data?.response?.data;
+
+                if(status == true && code == 'TRH_OK'){
+
+                  const table = document.getElementById("categoryBody");
+                    response.forEach( res => {
+                      let row = table.insertRow();
+
+                      let id = row.insertCell(0);
+                      id.innerHTML = res.id;
+
+                      let category = row.insertCell(1);
+                      category.innerHTML = res.category;
+
+                      let amountPaid = row.insertCell(2);
+                      amountPaid.innerHTML = res.amountPaid;
+
+                      let profitMade = row.insertCell(3);
+                      profitMade.innerHTML = res.profitMade;
+                   });
+                  
+                }
+              }
+
+
+              $.ajax({
+                  method: "POST",
+                  dataType: "text",
+                  url: "https://jideola.herokuapp.com/index.php/api/v1.0/list_category",
+                  success: function(data){
+                    var cat = JSON.parse(data);
+                    loadCategoryData(cat);
+                    loadCategoryData([]);
+                  },
+                  error:function(){
+                    console.log('Errors occurred...');
+                  }
+              });
+            </script>
+
+        </div>
+        
+    
+    </form>
+
+    
+
+</div>
+<script>
+
+
+// function formAjax(form_id,div_id,page_id,load_message,do_not_clear){
+
+//     do_not_clear = true;
+
+//       var form_data = jQuery("#"+form_id).serialize();
+
+//       if(page_id == '') page_id = jQuery("#"+form_id).prop('action');
+
+//       if(load_message == '') load_message = 'Loading...';
+
+//       jQuery("#"+form_id).hide(300);
+
+//       // jQuery("#"+div_id).html('<div class="text-center">'+load_message+'<br /><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></div>');
+//       jQuery("#"+div_id).html('<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="images/giphy.gif" /></div>');
+
+//       jQuery("#"+div_id).show(300);
+
+//       jQuery.post(page_id,form_data).done(function(data){
+
+//           jQuery("#"+div_id).html(data);
+
+//           jQuery("#"+form_id).show(300);
+
+//           if(!do_not_clear){
+
+//         jQuery("#"+form_id).each(function(){
+
+//           this.reset();
+
+//         }); 
+
+//       }
+
+//       }).fail(function(){
+
+//           alert("Unable to process form.");
+
+//           jQuery("#"+div_id).html("Unable to process form.");
+
+//           jQuery("#"+form_id).show(300);
+
+//       });
+
+//       return false;  
+
+//     }
+
+    // function getSpinner() {
+    //   var loadingimage = '<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="rotation.gif" /></div>';
+    //   return loadingimage;
+    // }
+
+
+    function pay(){
+
+      /* Assign variables */
+      var fullname = $('#fullname').val();
+      var method = $('#method').val();
+      var digit = $('#digit').val();
+
+      /* Validates fields */
+      if ($('input[name="payChecks"]:checked').length == 0) { alert('Oops! you need to select payment option'); return false; }
+      if(fullname == "") { alert('Oops! fullname is empty'); return false; }
+      if(method == "") { alert('Oops! method is empty'); return false ;}
+      if(digit == "") { alert('Oops! payment digit is empty'); return false; }
+
+      $("#myForm").submit(function(e) {
+          e.preventDefault(); /* Prevent actual form submit */
+          var form = $(this);
+          $.ajax({
+              method: "POST",
+              dataType: "text",
+              url: "https://jideola.herokuapp.com/index.php/api/v1.0/create_pay",
+              data: form.serialize(), /* Serializes form input */
+              success: function(data){
+                var result = JSON.parse(data);
+
+                var status = result?.data?.status;
+                var code = result?.data?.code;
+                var message = result?.data?.message[0];
+
+                if(status == false){
+                  alert(message);
+                  window.location.reload();
+                }
+
+                if(status == true && code == 'OK'){
+                  alert(message);
+                  window.location.reload();
+                }
+              },
+              error:function(){
+                alert('Oops, Errors Occurred...');
+                  window.location.reload();
+              }
+          });
+      });
+     
+    }
+
+
+    function payment(){
+
+        /* Assign variables */
+        var itemName, category, normalPrice, availablePrice, unitPrice;
+        itemName = $("#item-name").val();
+        category = $("#category").val();
+        normalPrice = $("#normal-price").val();
+        availablePrice = $("#available-unit").val();
+        unitPrice = $("#unit-price").val();
+
+        /* Validates fields */
+        if(itemName == "") { alert('Oops! item name is empty'); return false; }
+        if(category == "") { alert('Oops! category is empty'); return false ;}
+        if(availablePrice == "") { alert('Oops! available price is empty'); return false; }
+        if(normalPrice == "") { alert('Oops! normal price is empty'); return false; }
+        if(unitPrice == "") { alert('Oops! unit price is empty'); return false; }
+
+        $('#itemName').html(itemName);
+        $('#normalPrice').html(normalPrice);
+        $('#total').html(normalPrice);
+
+        $('#payItem').val(itemName);
+        $('#payCat').val(category);
+        $('#payAvail').val(availablePrice);
+        $('#payNor').val(normalPrice);
+        $('#payUnit').val(unitPrice);
+
+        $("#toggleDiv").modal();
+        return false;
+    }
+
+
+    function increment() {
+      document.getElementById('demoInput').stepUp();
+    }
+    function decrement() {
+      document.getElementById('demoInput').stepDown();
+    }
+</script>
+
+  </body>
+</html>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="toggleDiv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Pay</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <form class="" id="myForm" action="" method="post">
+
+            <!-- form header -->
+            <div class="form-header">
+            </div>
+        
+            <!-- form body -->
+            <div class="form-body">
+    
+                    <!-- item name and quantity -->
+                    <div class="horizontal-group">
+                  
+                        <div class="form-group left">
+                            <label class="label-title" id="itemName"></label>
+                            <label class="label-title" id=""> - ₦</label><label class="label-title" id="normalPrice"></label>
+                        </div>
+
+                        <div>
+                            <label class="label-title" for="quantity">Quantity:</label>
+                            
+                            <input id=demoInput name="payQuan" type=number>
+                            <button class="label-title" type="button" onclick="increment()">+</button>
+                            <button class="label-title" type="button" onclick="decrement()">-</button>
+                        </div>
+                      
+                        <div class="form-group right">
+                          <label for="digit" class="label-title">Total Price: </label> <label class="label-title">₦</label><label class="label-title" id="total"></label>
+                        </div>
+                      
+                    </div>
+
+
+                
+                    <!-- Fullname -->
+                   <div class="form-group">
+                      <label for="fullname" class="label-title">Fullname*</label>
+                      <input type="text" id="fullname" class="form-input" placeholder="enter your fullname" required="required" name="payFullname">
+                   </div>
+                  
+                   <!-- Token, card and digit -->
+                  <div class="horizontal-group">
+                  
+                    <div class="form-group left">
+                        <label class="label-title">Method:</label>
+                        <div class="">
+                            <label for="token" class="label-title">
+                                <input type="radio" name="payChecks" value="token" id="token"> Token</label>
+                            <label for="card" class="label-title">
+                                <input type="radio" name="payChecks" value="card" id="card"> Card</label>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group right">
+                      <label for="digit" class="label-title">Digit *</label>
+                      <input type="number" class="form-input" id="digit" placeholder="enter your  digit" required="required" name="payDigit">
+                    </div>
+                  
+                  </div>
+    
+    
+            </div>
+            <input type="hidden" value="0" name="payItem" id="payItem"/>
+            <input type="hidden" value="0" name="payCat" id="payCat"/>
+            <input type="hidden" value="0" name="payNor" id="payNor"/>
+            <input type="hidden" value="0" name="payAvail" id="payAvail"/>
+            <input type="hidden" value="0" name="payUnit" id="payUnit"/>
+        
+
+        </div><br/><br/><br/>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn" onclick="return pay();">Pay</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
