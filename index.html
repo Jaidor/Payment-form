@@ -609,7 +609,7 @@ color:red !important;
         unitPrice = $("#unit-price").val();
 
         /* Validates fields */
-        if(itemName == "") {$('#confirmModal').modal('show'); $('#modalContent').html('<div class="loader"></div>'); return false; }
+        if(itemName == "") {$('#confirmModal').modal('show'); $('#modalContent').html('<div class="loader">Error</div>'); return false; }
         if(category == "") { alert('Oops! category is empty'); return false ;}
         if(availablePrice == "") { alert('Oops! available price is empty'); return false; }
         if(normalPrice == "") { alert('Oops! normal price is empty'); return false; }
