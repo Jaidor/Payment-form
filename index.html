@@ -167,6 +167,13 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+#spinner{
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
 </style>
 
   <body>
@@ -481,6 +488,59 @@ tr:nth-child(even) {
 
 </div>
 <script>
+
+
+// function formAjax(form_id,div_id,page_id,load_message,do_not_clear){
+
+//     do_not_clear = true;
+
+//       var form_data = jQuery("#"+form_id).serialize();
+
+//       if(page_id == '') page_id = jQuery("#"+form_id).prop('action');
+
+//       if(load_message == '') load_message = 'Loading...';
+
+//       jQuery("#"+form_id).hide(300);
+
+//       // jQuery("#"+div_id).html('<div class="text-center">'+load_message+'<br /><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></div>');
+//       jQuery("#"+div_id).html('<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="images/giphy.gif" /></div>');
+
+//       jQuery("#"+div_id).show(300);
+
+//       jQuery.post(page_id,form_data).done(function(data){
+
+//           jQuery("#"+div_id).html(data);
+
+//           jQuery("#"+form_id).show(300);
+
+//           if(!do_not_clear){
+
+//         jQuery("#"+form_id).each(function(){
+
+//           this.reset();
+
+//         }); 
+
+//       }
+
+//       }).fail(function(){
+
+//           alert("Unable to process form.");
+
+//           jQuery("#"+div_id).html("Unable to process form.");
+
+//           jQuery("#"+form_id).show(300);
+
+//       });
+
+//       return false;  
+
+//     }
+
+    function getSpinner() {
+      var loadingimage = '<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="rotation.gif" /></div>';
+      return loadingimage;
+    }
 
 
     function pay(){
