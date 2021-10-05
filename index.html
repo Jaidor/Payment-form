@@ -550,7 +550,8 @@ color:red !important;
 
     function pay(){
 
-      $('#modalContent').html('');
+      $('#toggleDiv').html('');
+      $('#toggleDiv').html('<div class="loader"></div>');
 
       /* Assign variables */
       var fullname = $('#fullname').val();
@@ -566,8 +567,7 @@ color:red !important;
       $("#myForm").submit(function(e) {
           e.preventDefault(); /* Prevent actual form submit */
           var form = $(this);
-          $('#confirmModal').modal('show');
-            $('#modalContent').html('<div class="loader"></div>');
+
           $.ajax({
               method: "POST",
               dataType: "text",
@@ -601,6 +601,9 @@ color:red !important;
 
 
     function payment(){
+
+        $('#confirmModal').modal('show');
+        $('#modalContent').html('<div class="loader"></div>');
 
         /* Assign variables */
         var itemName, category, normalPrice, availablePrice, unitPrice;
