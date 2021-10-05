@@ -167,6 +167,71 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.error {
+color:red !important;
+}
+  .bootstrap-select.filter-option2 .dropdown-menu.open{
+    height: 400px;overflow: hidden;
+  }
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+    color: dimgray;
+    font-size: 8px;
+    margin: 80px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+.loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.loader:after {
+    left: 3.5em;
+}
+@-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+@keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
 </style>
 
   <body>
@@ -483,62 +548,9 @@ tr:nth-child(even) {
 <script>
 
 
-// function formAjax(form_id,div_id,page_id,load_message,do_not_clear){
-
-//     do_not_clear = true;
-
-//       var form_data = jQuery("#"+form_id).serialize();
-
-//       if(page_id == '') page_id = jQuery("#"+form_id).prop('action');
-
-//       if(load_message == '') load_message = 'Loading...';
-
-//       jQuery("#"+form_id).hide(300);
-
-//       // jQuery("#"+div_id).html('<div class="text-center">'+load_message+'<br /><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></div>');
-//       jQuery("#"+div_id).html('<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="images/giphy.gif" /></div>');
-
-//       jQuery("#"+div_id).show(300);
-
-//       jQuery.post(page_id,form_data).done(function(data){
-
-//           jQuery("#"+div_id).html(data);
-
-//           jQuery("#"+form_id).show(300);
-
-//           if(!do_not_clear){
-
-//         jQuery("#"+form_id).each(function(){
-
-//           this.reset();
-
-//         }); 
-
-//       }
-
-//       }).fail(function(){
-
-//           alert("Unable to process form.");
-
-//           jQuery("#"+div_id).html("Unable to process form.");
-
-//           jQuery("#"+form_id).show(300);
-
-//       });
-
-//       return false;  
-
-//     }
-
-    function getSpinner() {
-      var loadingimage = '<div id="spinner" class="spinnerdiv"<img id="img-spinner" class="ajax-spinner" src="rotation.gif" /></div>';
-      return loadingimage;
-    }
-
-
     function pay(){
 
-      console.log(getSpinner());
+      $('#modalContent').html('');
 
       /* Assign variables */
       var fullname = $('#fullname').val();
@@ -554,6 +566,8 @@ tr:nth-child(even) {
       $("#myForm").submit(function(e) {
           e.preventDefault(); /* Prevent actual form submit */
           var form = $(this);
+          $('#confirmModal').modal('show');
+            $('#modalContent').html('<div class="loader"></div>');
           $.ajax({
               method: "POST",
               dataType: "text",
@@ -722,3 +736,19 @@ tr:nth-child(even) {
       </div>
     </div>
   </div>
+
+
+
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;" id="modalContent">
+            </div>
+        </div>
+    </div>
+</div>
